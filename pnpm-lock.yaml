@@ -12,8 +12,8 @@ importers:
         specifier: ~8.3.0
         version: 8.3.6
       dominative:
-        specifier: ^0.0.3-alpha.2
-        version: 0.0.3-alpha.8(@nativescript/core@8.3.6)(@utls/undom-ef@0.3.10)
+        specifier: ^0.1.3
+        version: 0.1.3(@nativescript/core@8.3.6)(undom-ng@1.1.2)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -624,9 +624,6 @@ packages:
 
   '@types/shortid@0.0.29':
     resolution: {integrity: sha512-9BCYD9btg2CY4kPcpMQ+vCR8U6V8f/KvixYD5ZbxoWlkhddNF5IeZMVL3p+QFUkg+Hb+kPAG9Jgk4bnnF1v/Fw==}
-
-  '@utls/undom-ef@0.3.10':
-    resolution: {integrity: sha512-U2K4jRc/zTkt+SptDjplOF3j2Cv/rm5eZD7osN39AWUrYfbFf3ZnBI9ZmF8OpOKQ9Wx/5+8FP03JhuZDM/j/Ng==}
 
   '@vue/compiler-core@3.5.35':
     resolution: {integrity: sha512-BUmHaR1J+O+CKZ9uJucdVTEr1LHsdyvv7vG3eNRhK3CczEHeMd/LtsHAuD7PbrxvI2envCY2v7HI1vC1aBRzKw==}
@@ -1396,11 +1393,11 @@ packages:
   dom-walk@0.1.2:
     resolution: {integrity: sha512-6QvTW9mrGeIegrFXdtQi9pk7O/nSK6lSdXW2eqUspN5LWD7UTji2Fqw5V2YLjBpHEoU9Xl/eUWNpDeZvoyOv2w==}
 
-  dominative@0.0.3-alpha.8:
-    resolution: {integrity: sha512-T3i3gMuozJt/pDoH+2mcPshmF7IYl0DQfMn7vBN3zIAFY2TpjPllvw1PfWe5IL38g5qfbGxGQghZ8QW1r+hGzQ==}
+  dominative@0.1.3:
+    resolution: {integrity: sha512-MGDB5HFb8u+pOanUMfz26yibMd0piiq0TDk1q4z7qJNGKQWMI1CKDaJh6H8dtLDBJoO1sjwC/5WPhBYHga27zQ==}
     peerDependencies:
-      '@nativescript/core': ^8.3.4
-      '@utls/undom-ef': ^0.3.6
+      '@nativescript/core': '>=8.6.2'
+      undom-ng: ^1.1.2
 
   dotenv-defaults@2.0.2:
     resolution: {integrity: sha512-iOIzovWfsUHU91L5i8bJce3NYK5JXeAwH50Jh6+ARUdLiiGlYWfGw6UkzsYqaXZH/hjE/eCd/PlfM/qqyK0AMg==}
@@ -2870,6 +2867,7 @@ packages:
 
   pubnub@4.21.2:
     resolution: {integrity: sha512-yDDkqrvhFrBYFZsI4EL0Atnilo00OrRR+hCw86iTlkinMMxQbZhdn5yePrSc3GUs62kn3xDC6b73zaIKUYwWFg==}
+    bundledDependencies: []
 
   punycode@2.3.1:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
@@ -3522,6 +3520,9 @@ packages:
 
   undici-types@7.24.6:
     resolution: {integrity: sha512-WRNW+sJgj5OBN4/0JpHFqtqzhpbnV0GuB+OozA9gCL7a993SmU+1JBZCzLNxYsbMfIeDL+lTsphD5jN5N+n0zg==}
+
+  undom-ng@1.1.2:
+    resolution: {integrity: sha512-ZYKxr3cM2X4x4D+y1uo82fBHtOM8lNr5od/msdI2AI7YGCwrLkGt/ofOF0RlnDDF9f8gqqSbdMua1eoTc2LbYQ==}
 
   unique-filename@1.1.1:
     resolution: {integrity: sha512-Vmp0jIp2ln35UTXuryvjzkjGdRyf9b2lTXuSYUiPmzRcl3FDtYqAwOnTJkAngD9SWhnoJzDbTKwaOrZ+STtxNQ==}
@@ -4543,8 +4544,6 @@ snapshots:
 
   '@types/shortid@0.0.29': {}
 
-  '@utls/undom-ef@0.3.10': {}
-
   '@vue/compiler-core@3.5.35':
     dependencies:
       '@babel/parser': 7.29.7
@@ -5286,10 +5285,10 @@ snapshots:
 
   dom-walk@0.1.2: {}
 
-  dominative@0.0.3-alpha.8(@nativescript/core@8.3.6)(@utls/undom-ef@0.3.10):
+  dominative@0.1.3(@nativescript/core@8.3.6)(undom-ng@1.1.2):
     dependencies:
       '@nativescript/core': 8.3.6
-      '@utls/undom-ef': 0.3.10
+      undom-ng: 1.1.2
 
   dotenv-defaults@2.0.2:
     dependencies:
@@ -7520,6 +7519,8 @@ snapshots:
   unc-path-regex@0.1.2: {}
 
   undici-types@7.24.6: {}
+
+  undom-ng@1.1.2: {}
 
   unique-filename@1.1.1:
     dependencies:

@@ -37,11 +37,7 @@ const App = () => {
   }, [setCount]);
 
   return (
-    <page
-      style={{
-        padding: 30,
-      }}
-    >
+    <>
       <actionbar title="Hello" />
       <flexboxlayout
         style={{
@@ -70,7 +66,7 @@ const App = () => {
           }}
         />
       </flexboxlayout>
-    </page>
+    </>
   );
 };
 

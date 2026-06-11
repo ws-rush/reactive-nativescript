@@ -15,12 +15,11 @@ Application.run({
   //@ts-ignore
   create: () => {
     Object.defineProperty(global, "__DEV__", { value: false });
-    const root = document.createElement("FlexboxLayout");
-    document.appendChild(root);
+    const root = document.body;
     //@ts-ignore
     document.activeElement = root;
     let container = ReactDOM.createRoot(root);
     container.render(React.createElement(App));
-    return root;
+    return document;
   },
 });
