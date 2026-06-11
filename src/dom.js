@@ -1,12 +1,39 @@
-import { document, aliasTagName, nativeViews } from "dominative";
+import { document, aliasTagName, scope } from "dominative";
+
 aliasTagName((tag) => tag.toLowerCase());
+
+if (!scope.HTMLIFrameElement) {
+  scope.HTMLIFrameElement = function HTMLIFrameElement() {};
+}
+
+scope.document = document;
+scope.location = scope.location || {
+  protocol: "http:",
+};
+
 global.document = document;
 global.navigator = {
   userAgent: "Chrome",
 };
-globalThis.window = {
+
+const windowShim = globalThis.window || {};
+
+Object.assign(windowShim, {
   document: global.document,
-  location: {
-    protocol: "http:",
-  },
-};
+  navigator: global.navigator,
+  location: scope.location,
+  Node: scope.Node,
+  Element: scope.Element,
+  HTMLElement: scope.HTMLElement,
+  SVGElement: scope.SVGElement,
+  Document: scope.Document,
+  HTMLIFrameElement: scope.HTMLIFrameElement,
+  addEventListener: windowShim.addEventListener || (() => {}),
+  removeEventListener: windowShim.removeEventListener || (() => {}),
+  dispatchEvent: windowShim.dispatchEvent || (() => true),
+});
+
+windowShim.self = windowShim;
+windowShim.top = windowShim;
+
+globalThis.window = windowShim;
