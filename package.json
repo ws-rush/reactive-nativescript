@@ -1,0 +1,40 @@
+{
+  "name": "ReactDomExp",
+  "main": "src/app.tsx",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@nativescript/core": "~8.3.0",
+    "dominative": "^0.0.3-alpha.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.18.6",
+    "@nativescript/android": "8.3.1",
+    "@nativescript/preview-cli": "1.0.1",
+    "@nativescript/stackblitz": "0.0.5",
+    "@nativescript/types": "~8.3.0",
+    "@nativescript/webpack": "~5.0.6",
+    "@types/react": "18.0.18",
+    "babel-loader": "8.2.5",
+    "css-loader": "7.1.4",
+    "nativescript": "8.3.3",
+    "patch-package": "~6.4.7",
+    "postcss-loader": "8.2.1",
+    "raw-loader": "4.0.2",
+    "sass-loader": "16.0.8",
+    "ts-loader": "9.2.8",
+    "typescript": "~4.5.5"
+  },
+  "scripts": {
+    "postinstall": "patch-package",
+    "dev": "ns run android",
+    "start": "ns run android",
+    "build": "ns build android",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "pnpm run type-check -- --watch"
+  },
+  "gitHead": "1350d382fb4b0ed4c6e9685df909518b2688e004",
+  "readme": "NativeScript Application"
+}

@@ -1,0 +1,152 @@
+diff --git a/node_modules/react-dom/cjs/react-dom.development.js b/node_modules/react-dom/cjs/react-dom.development.js
+index e4ed5ae..8ca9214 100644
+--- a/node_modules/react-dom/cjs/react-dom.development.js
++++ b/node_modules/react-dom/cjs/react-dom.development.js
+@@ -3688,12 +3688,12 @@ var validateProperty$1 = function () {};
+         return true;
+       }
+ 
+-      if (EVENT_NAME_REGEX.test(name)) {
+-        error('Unknown event handler property `%s`. It will be ignored.', name);
++      // if (EVENT_NAME_REGEX.test(name)) {
++      //   error('Unknown event handler property `%s`. It will be ignored.', name);
+ 
+-        warnedProperties$1[name] = true;
+-        return true;
+-      }
++      //   warnedProperties$1[name] = true;
++      //   return true;
++      // }
+     } else if (EVENT_NAME_REGEX.test(name)) {
+       // If no event plugins have been injected, we are in a server environment.
+       // So we can't tell if the event name is correct for sure, but we can filter
+@@ -3751,15 +3751,17 @@ var validateProperty$1 = function () {};
+         warnedProperties$1[name] = true;
+         return true;
+       }
+-    } else if (!isReserved && name !== lowerCasedName) {
+-      // Unknown attributes should have lowercase casing since that's how they
+-      // will be cased anyway with server rendering.
+-      error('React does not recognize the `%s` prop on a DOM element. If you ' + 'intentionally want it to appear in the DOM as a custom ' + 'attribute, spell it as lowercase `%s` instead. ' + 'If you accidentally passed it from a parent component, remove ' + 'it from the DOM element.', name, lowerCasedName);
+-
+-      warnedProperties$1[name] = true;
+-      return true;
+     } 
+     
++    // else if (!isReserved && name !== lowerCasedName) {
++    //   // Unknown attributes should have lowercase casing since that's how they
++    //   // will be cased anyway with server rendering.
++    //   error('React does not recognize the `%s` prop on a DOM element. If you ' + 'intentionally want it to appear in the DOM as a custom ' + 'attribute, spell it as lowercase `%s` instead. ' + 'If you accidentally passed it from a parent component, remove ' + 'it from the DOM element.', name, lowerCasedName);
++
++    //   warnedProperties$1[name] = true;
++    //   return true;
++    // }
++
+     if (typeof value === 'boolean' && shouldRemoveAttributeWithWarning(name, value, propertyInfo, false)) {
+       if (value) {
+         error('Received `%s` for a non-boolean attribute `%s`.\n\n' + 'If you want to write it to the DOM, pass a string instead: ' + '%s="%s" or %s={value.toString()}.', value, name, name, value, name);
+@@ -3820,11 +3822,12 @@ var warnUnknownProperties = function (type, props, eventRegistry) {
+ };
+ 
+ function validateProperties$2(type, props, eventRegistry) {
+-  if (isCustomComponent(type, props)) {
+-    return;
+-  }
++  return;
++  // if (isCustomComponent(type, props)) {
++  //   return;
++  // }
+ 
+-  warnUnknownProperties(type, props, eventRegistry);
++  // warnUnknownProperties(type, props, eventRegistry);
+ }
+ 
+ var IS_EVENT_HANDLE_NON_MANAGED_NODE = 1;
+@@ -8442,15 +8445,15 @@ function getActiveElementDeep() {
+   var win = window;
+   var element = getActiveElement();
+ 
+-  while (element instanceof win.HTMLIFrameElement) {
+-    if (isSameOriginFrame(element)) {
+-      win = element.contentWindow;
+-    } else {
+-      return element;
+-    }
++  // while (element instanceof win.HTMLIFrameElement) {
++  //   if (isSameOriginFrame(element)) {
++  //     win = element.contentWindow;
++  //   } else {
++  //     return element;
++  //   }
+ 
+-    element = getActiveElement(win.document);
+-  }
++  //   element = getActiveElement(win.document);
++  // }
+ 
+   return element;
+ }
+@@ -9130,30 +9133,30 @@ function listenToNativeEvent(domEventName, isCapturePhaseListener, target) {
+ } // This is only used by createEventHandle when the
+ var listeningMarker = '_reactListening' + Math.random().toString(36).slice(2);
+ function listenToAllSupportedEvents(rootContainerElement) {
+-  if (!rootContainerElement[listeningMarker]) {
+-    rootContainerElement[listeningMarker] = true;
+-    allNativeEvents.forEach(function (domEventName) {
+-      // We handle selectionchange separately because it
+-      // doesn't bubble and needs to be on the document.
+-      if (domEventName !== 'selectionchange') {
+-        if (!nonDelegatedEvents.has(domEventName)) {
+-          listenToNativeEvent(domEventName, false, rootContainerElement);
+-        }
+-
+-        listenToNativeEvent(domEventName, true, rootContainerElement);
+-      }
+-    });
+-    var ownerDocument = rootContainerElement.nodeType === DOCUMENT_NODE ? rootContainerElement : rootContainerElement.ownerDocument;
+-
+-    if (ownerDocument !== null) {
+-      // The selectionchange event also needs deduplication
+-      // but it is attached to the document.
+-      if (!ownerDocument[listeningMarker]) {
+-        ownerDocument[listeningMarker] = true;
+-        listenToNativeEvent('selectionchange', false, ownerDocument);
+-      }
+-    }
+-  }
++  // if (!rootContainerElement[listeningMarker]) {
++  //   rootContainerElement[listeningMarker] = true;
++  //   allNativeEvents.forEach(function (domEventName) {
++  //     // We handle selectionchange separately because it
++  //     // doesn't bubble and needs to be on the document.
++  //     if (domEventName !== 'selectionchange') {
++  //       if (!nonDelegatedEvents.has(domEventName)) {
++  //         listenToNativeEvent(domEventName, false, rootContainerElement);
++  //       }
++
++  //       listenToNativeEvent(domEventName, true, rootContainerElement);
++  //     }
++  //   });
++  //   var ownerDocument = rootContainerElement.nodeType === DOCUMENT_NODE ? rootContainerElement : rootContainerElement.ownerDocument;
++
++  //   if (ownerDocument !== null) {
++  //     // The selectionchange event also needs deduplication
++  //     // but it is attached to the document.
++  //     if (!ownerDocument[listeningMarker]) {
++  //       ownerDocument[listeningMarker] = true;
++  //       listenToNativeEvent('selectionchange', false, ownerDocument);
++  //     }
++  //   }
++  // }
+ }
+ 
+ function addTrappedEventListener(targetContainer, domEventName, eventSystemFlags, isCapturePhaseListener, isDeferredListenerForLegacyFBSupport) {
+@@ -9744,7 +9747,7 @@ function createElement(type, props, rootContainerElement, parentNamespace) {
+   var isCustomComponentTag; // We create tags in the namespace of their parent container, except HTML
+   // tags get no namespace.
+ 
+-  var ownerDocument = getOwnerDocumentFromRootContainer(rootContainerElement);
++  var ownerDocument = document;
+   var domElement;
+   var namespaceURI = parentNamespace;
+ 
