@@ -12,6 +12,31 @@ module.exports = (env) => {
   webpack.useConfig("react");
   webpack.chainWebpack((config) => {
     config.resolve.alias.set("react-dom", "react-dom");
+
+    config.module
+      .rule("ts")
+      .use("babel-loader|lingui-macros")
+      .loader("babel-loader")
+      .before("ts-loader")
+      .options({
+        babelrc: false,
+        configFile: false,
+        presets: ["@babel/preset-react"],
+        plugins: ["macros"],
+      });
+
+    // Transpile @messageformat/parser for Android V8 compatibility
+    // (uses \p{Pat_Syn} / \p{Pat_WS} unicode regex not supported by NS runtime)
+    config.module
+      .rule("messageformat")
+      .test(/node_modules[\\/](@messageformat[\\/]parser)[\\/].*\.js$/)
+      .use("babel-loader|messageformat")
+      .loader("babel-loader")
+      .options({
+        babelrc: false,
+        configFile: false,
+        plugins: ["@babel/plugin-transform-unicode-property-regex"],
+      });
   });
   return webpack.resolveConfig();
 };

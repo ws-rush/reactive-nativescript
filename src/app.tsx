@@ -2,14 +2,9 @@ import { Application } from "@nativescript/core";
 import "./dom.js";
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
+import { I18nProvider } from "@lingui/react";
+import { i18n } from "./i18n/i18n";
 import App from "./appi";
-
-// function AppWithCallbackAfterRender() {
-//   React.useEffect(() => {
-//     console.log("rendered");
-//   });
-//   return <App />;
-// }
 
 Application.run({
   //@ts-ignore
@@ -19,7 +14,13 @@ Application.run({
     //@ts-ignore
     document.activeElement = root;
     let container = ReactDOM.createRoot(root);
-    container.render(React.createElement(App));
+    container.render(
+      React.createElement(
+        I18nProvider,
+        { i18n },
+        React.createElement(App)
+      )
+    );
     return document;
   },
 });
