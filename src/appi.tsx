@@ -1,6 +1,10 @@
 import React, { useCallback, useState } from "react";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { Icon } from "./components/Icon";
+import IconHome from "~icons/vuesax-linear/home";
+import IconHomeBold from "~icons/vuesax-bold/home";
+import IconHeart from "~icons/vuesax-linear/heart";
+import IconHeartBold from "~icons/vuesax-bold/heart";
+import IconSettings from "~icons/vuesax-linear/settings";
 
 type Locale = "en" | "ar";
 
@@ -34,15 +38,15 @@ const App = () => {
         >
           <Trans>Count is {count}</Trans>
         </ns-label>
-        {/* SVG icons from assets/icons */}
+        {/* SVG icons loaded via unplugin-icons */}
         <ns-flexbox-layout
           className="flex-row items-center justify-center mb-[16]"
         >
-          <Icon name="home" width={32} height={32} className="mr-[12]" />
-          <Icon name="home-bold" width={32} height={32} className="mr-[12]" />
-          <Icon name="heart" width={32} height={32} className="mr-[12]" />
-          <Icon name="heart-bold" width={32} height={32} className="mr-[12]" />
-          <Icon name="settings" width={32} height={32} />
+          <IconHome width={32} height={32} className="mr-[12] text-gray-800" />
+          <IconHomeBold width={32} height={32} className="mr-[12] text-blue-500" />
+          <IconHeart width={32} height={32} className="mr-[12] text-red-500" />
+          <IconHeartBold width={32} height={32} className="mr-[12] text-red-500" />
+          <IconSettings width={32} height={32} className="text-gray-800" />
         </ns-flexbox-layout>
         <ns-button
           text={t`hello world`}

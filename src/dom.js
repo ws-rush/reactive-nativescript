@@ -1,6 +1,63 @@
 import { document, aliasTagName, scope, registerElement } from "dominative";
 import { SVGView } from "@nativescript-community/ui-svg";
 
+// --- Patch SVGView to apply CSS `color` to SVG `currentColor` ---
+// SVGView renders SVG on a canvas, so CSS `color` has no effect on the SVG
+// content. We monkey-patch handleSrc to replace `currentColor` with the
+// resolved CSS color hex value, and listen for color property changes.
+
+const _origHandleSrc = SVGView.prototype.handleSrc;
+
+SVGView.prototype.handleSrc = function (value) {
+  // Store the raw template (may be a string, Promise, function, etc.)
+  this.__svgTemplate = value;
+
+  if (typeof value === "string") {
+    value = this.__applySvgColor(value);
+  }
+
+  return _origHandleSrc.call(this, value);
+};
+
+// Replace `currentColor` placeholders with the resolved CSS color
+SVGView.prototype.__applySvgColor = function (svg) {
+  if (typeof svg === "string" && svg.includes("currentColor") && this.color) {
+    return svg.replace(/currentColor/g, this.color.hex);
+  }
+  return svg;
+};
+
+// Re-render SVG when CSS color changes
+SVGView.prototype.__svgOnColorChanged = function () {
+  const tpl = this.__svgTemplate;
+  if (typeof tpl === "string" && tpl.includes("currentColor")) {
+    const colored = this.__applySvgColor(tpl);
+    _origHandleSrc.call(this, colored);
+  }
+};
+
+// Hook into NativeScript view lifecycle
+const _origOnLoaded = SVGView.prototype.onLoaded;
+SVGView.prototype.onLoaded = function () {
+  _origOnLoaded.call(this);
+  // Apply any CSS color that resolved before loaded
+  this.__svgOnColorChanged();
+  // Listen for future color changes (dynamic className, etc.)
+  this.on("propertyChange", this.__svgColorPropHandler);
+};
+
+const _origOnUnloaded = SVGView.prototype.onUnloaded;
+SVGView.prototype.onUnloaded = function () {
+  this.off("propertyChange", this.__svgColorPropHandler);
+  _origOnUnloaded.call(this);
+};
+
+SVGView.prototype.__svgColorPropHandler = function (args) {
+  if (args.propertyName === "color") {
+    this.__svgOnColorChanged();
+  }
+};
+
 registerElement("SVGView", SVGView);
 
 // document.defaultView includes DOM primitives and Dominative virtual helpers,
