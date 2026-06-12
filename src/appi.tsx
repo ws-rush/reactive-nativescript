@@ -1,5 +1,5 @@
 import { Screen } from "@nativescript/core";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { Icon } from "./components/Icon";
 
@@ -7,36 +7,17 @@ type Locale = "en" | "ar";
 
 const App = () => {
   const [count, setCount] = useState(0);
-  const countBtnRef = useRef<HTMLButtonElement>(null);
-  const langBtnRef = useRef<HTMLButtonElement>(null);
   const { i18n, t } = useLingui();
-  console.log(i18n, 'i18n')
   const locale = i18n.locale === "ar" ? "ar" : "en"
+
+  const incrementCount = useCallback(() => {
+    setCount((c) => c + 1);
+  }, []);
 
   const toggleLanguage = useCallback(() => {
     const nextLocale = locale === "en" ? "ar" : "en";
     i18n.activate(nextLocale);
   }, [locale, i18n]);
-
-  useEffect(() => {
-    const onCountTap = () => {
-      setCount((c) => c + 1);
-    };
-    const countBtn = countBtnRef.current;
-    const langBtn = langBtnRef.current;
-
-    if (countBtn) {
-      countBtn.addEventListener("onTap", onCountTap);
-    }
-    if (langBtn) {
-      langBtn.addEventListener("onTap", toggleLanguage);
-    }
-
-    return () => {
-      if (countBtn) countBtn.removeEventListener("onTap", onCountTap);
-      if (langBtn) langBtn.removeEventListener("onTap", toggleLanguage);
-    };
-  }, [toggleLanguage]);
 
   const switchLabel =
     locale === "en"
@@ -45,8 +26,8 @@ const App = () => {
 
   return (
     <>
-      <actionbar title={t`Hello`} />
-      <flexboxlayout
+      <ns-action-bar title={t`Hello`} />
+      <ns-flexbox-layout
         style={{
           flexDirection: "column",
           padding: 12 * Screen.mainScreen.scale,
@@ -54,16 +35,16 @@ const App = () => {
           justifyContent: "center",
         }}
       >
-        <label
+        <ns-label
           style={{
             fontSize: 50,
             marginBottom: 25,
           }}
         >
           <Trans>Count is {count}</Trans>
-        </label>
+        </ns-label>
         {/* SVG icons from assets/icons */}
-        <flexboxlayout
+        <ns-flexbox-layout
           style={{
             flexDirection: "row",
             alignItems: "center",
@@ -76,10 +57,10 @@ const App = () => {
           <Icon name="heart" width={32} height={32} style={{ marginRight: 12 }} />
           <Icon name="heart-bold" width={32} height={32} style={{ marginRight: 12 }} />
           <Icon name="settings" width={32} height={32} />
-        </flexboxlayout>
-        <button
+        </ns-flexbox-layout>
+        <ns-button
           text={t`hello world`}
-          ref={countBtnRef}
+          onTap={incrementCount}
           style={{
             height: 50 * Screen.mainScreen.scale,
             width: 250 * Screen.mainScreen.scale,
@@ -90,9 +71,9 @@ const App = () => {
           }}
         />
         {/* Language switcher */}
-        <button
+        <ns-button
           text={switchLabel}
-          ref={langBtnRef}
+          onTap={toggleLanguage}
           style={{
             height: 50 * Screen.mainScreen.scale,
             width: 250 * Screen.mainScreen.scale,
@@ -101,7 +82,7 @@ const App = () => {
             borderRadius: 100 * Screen.mainScreen.scale,
           }}
         />
-      </flexboxlayout>
+      </ns-flexbox-layout>
     </>
   );
 };

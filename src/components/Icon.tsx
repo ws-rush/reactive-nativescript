@@ -46,7 +46,7 @@ export function Icon({
   const src = resolveIconPath(name);
 
   return (
-    <svgview
+    <ns-svg-view
       src={src}
       width={width}
       height={height}
