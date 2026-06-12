@@ -26,7 +26,8 @@
     }
   },
   "include": [
-    "./src/**/*.tsx?"
+    "./src/**/*.ts",
+    "./src/**/*.tsx"
   ],
   "files": [
     "./references.d.ts"

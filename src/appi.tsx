@@ -1,5 +1,6 @@
 import { Screen } from "@nativescript/core";
 import React, { useEffect, useRef, useState } from "react";
+import { Icon } from "./components/Icon";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -35,6 +36,21 @@ const App = () => {
           }}
           text={`Count is ${count}`}
         />
+        {/* SVG icons from assets/icons */}
+        <flexboxlayout
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            marginBottom: 16,
+          }}
+        >
+          <Icon name="home" width={32} height={32} style={{ marginRight: 12 }} />
+          <Icon name="home-bold" width={32} height={32} style={{ marginRight: 12 }} />
+          <Icon name="heart" width={32} height={32} style={{ marginRight: 12 }} />
+          <Icon name="heart-bold" width={32} height={32} style={{ marginRight: 12 }} />
+          <Icon name="settings" width={32} height={32} />
+        </flexboxlayout>
         <button
           text="hello world"
           ref={ref}

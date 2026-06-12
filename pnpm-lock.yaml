@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@nativescript-community/ui-svg':
+        specifier: ^0.2.24
+        version: 0.2.24
       '@nativescript/core':
         specifier: 9.0.20
         version: 9.0.20
@@ -408,6 +411,15 @@ packages:
 
   '@kwsites/promise-deferred@1.1.1':
     resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==}
+
+  '@nativescript-community/arraybuffers@1.1.5':
+    resolution: {integrity: sha512-Tcvb8Y+i71UUHiOd59KZefP1UmOXDYKg/Oy2KGf1CgPH7i0TlosBxYJwwczq2csuuKYG4Bde//K+I/soym+8eg==}
+
+  '@nativescript-community/ui-canvas@4.6.52':
+    resolution: {integrity: sha512-Jkr0eKu08+hsMvx+uASL/mSNnTawWSRkT/3nYS7k0X9tzgVQ46pxMTuQ9tWO94dz7o4Fv4c9D4jYk76xcJYBuA==}
+
+  '@nativescript-community/ui-svg@0.2.24':
+    resolution: {integrity: sha512-5aeSeCtPDxuVW3udf1FjnBNkdhUET1E7nZKGB7tXcvMY3+/e75MqsnYF+vSnhTJ/MdqQ9hSQWcNmeCFidDomOw==}
 
   '@nativescript/android@9.0.4':
     resolution: {integrity: sha512-htfv7Ku/M6Tq6fQjhV0nSwxa9agNYEs9x4zBdOW8mRye5CZS7xTJq83MffYkItrtN/jJeeaxiSAgu0F+L4oHgA==}
@@ -3856,6 +3868,16 @@ snapshots:
       - supports-color
 
   '@kwsites/promise-deferred@1.1.1': {}
+
+  '@nativescript-community/arraybuffers@1.1.5': {}
+
+  '@nativescript-community/ui-canvas@4.6.52':
+    dependencies:
+      '@nativescript-community/arraybuffers': 1.1.5
+
+  '@nativescript-community/ui-svg@0.2.24':
+    dependencies:
+      '@nativescript-community/ui-canvas': 4.6.52
 
   '@nativescript/android@9.0.4': {}
 

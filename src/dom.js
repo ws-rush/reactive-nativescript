@@ -1,4 +1,7 @@
-import { document, aliasTagName, scope } from "dominative";
+import { document, aliasTagName, scope, registerElement } from "dominative";
+import { SVGView } from "@nativescript-community/ui-svg";
+
+registerElement("svgview", SVGView);
 
 aliasTagName((tag) => tag.toLowerCase());
 

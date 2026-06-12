@@ -19,6 +19,16 @@ declare module "react" {
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
       >;
+      svgview: React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement> & {
+          src?: string;
+          width?: number | string;
+          height?: number | string;
+          stretch?: "none" | "fill" | "aspectFit" | "aspectFill";
+          color?: string;
+        },
+        HTMLElement
+      >;
     }
   }
 }
