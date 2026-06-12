@@ -2,7 +2,8 @@
   "compilerOptions": {
     "module": "esnext",
     "target": "es2017",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
+    "skipLibCheck": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "noEmitHelpers": true,
@@ -10,16 +11,28 @@
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "maxNodeModuleJsDepth": 5,
-    "downlevelIteration": true,
     "jsx": "react",
-    "lib": ["es2017", "dom"],
-    "baseUrl": ".",
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "paths": {
-      "~/*": ["src/*"],
-      "@/*": ["src/*"]
+      "~/*": [
+        "./src/*"
+      ],
+      "@/*": [
+        "./src/*"
+      ]
     }
   },
-  "include": ["./src/**/*.tsx?"],
-  "files": ["./references.d.ts"],
-  "exclude": ["node_modules", "platforms"]
+  "include": [
+    "./src/**/*.tsx?"
+  ],
+  "files": [
+    "./references.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "platforms"
+  ]
 }

@@ -1,25 +1,6 @@
 import { Screen } from "@nativescript/core";
 import React, { useEffect, useRef, useState } from "react";
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      page: React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
-        HTMLElement
-      >;
-      actionbar: React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
-        HTMLElement
-      >;
-      flexboxlayout: React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
-        HTMLElement
-      >;
-    }
-  }
-}
-
 const App = () => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLButtonElement>(null);
