@@ -12,6 +12,8 @@ export interface IconProps {
   stretch?: "none" | "fill" | "aspectFit" | "aspectFill";
   /** Additional style */
   style?: React.CSSProperties;
+  /** Tailwind or CSS class name */
+  className?: string;
 }
 
 /**
@@ -42,6 +44,7 @@ export function Icon({
   height = 24,
   stretch = "aspectFit",
   style,
+  className,
 }: IconProps) {
   const src = resolveIconPath(name);
 
@@ -52,6 +55,7 @@ export function Icon({
       height={height}
       stretch={stretch}
       style={style}
+      className={className}
     />
   );
 }
