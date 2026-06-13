@@ -29,12 +29,15 @@ const App = () => {
 
   return (
     <>
-      <ns-action-bar title={t`Hello`} />
+      <ns-action-bar
+        title={t`Hello`}
+        className="font-ibm-plex-arabic-semibold font-semibold"
+      />
       <ns-flexbox-layout
-        className="flex-col items-center justify-center p-12"
+        className="font-ibm-plex-arabic font-normal flex-col items-center justify-center p-12"
       >
         <ns-label
-          className="text-[50px] mb-[25px]"
+          className="font-ibm-plex-arabic-bold font-bold text-[50px] mb-[25px]"
         >
           <Trans>Count is {count}</Trans>
         </ns-label>
@@ -48,16 +51,38 @@ const App = () => {
           <IconHeartBold width={32} height={32} className="mr-[12] text-red-500" />
           <IconSettings width={32} height={32} className="text-gray-800" />
         </ns-flexbox-layout>
+        <ns-flexbox-layout className="flex-col items-center mb-[16]">
+          <ns-label
+            text={t`Light`}
+            className="font-ibm-plex-arabic-light font-light text-[18px]"
+          />
+          <ns-label
+            text={t`Regular`}
+            className="font-ibm-plex-arabic font-normal text-[18px]"
+          />
+          <ns-label
+            text={t`Medium`}
+            className="font-ibm-plex-arabic-medium font-medium text-[18px]"
+          />
+          <ns-label
+            text={t`SemiBold`}
+            className="font-ibm-plex-arabic-semibold font-semibold text-[18px]"
+          />
+          <ns-label
+            text={t`Bold`}
+            className="font-ibm-plex-arabic-bold font-bold text-[18px]"
+          />
+        </ns-flexbox-layout>
         <ns-button
           text={t`hello world`}
           onTap={incrementCount}
-          className="h-[50] w-[250] bg-red-500 text-white rounded-full mb-[12]"
+          className="font-ibm-plex-arabic-medium font-medium normal-case h-[50] w-[250] bg-red-500 text-white rounded-full mb-[12]"
         />
         {/* Language switcher */}
         <ns-button
           text={switchLabel}
           onTap={toggleLanguage}
-          className="h-[50] w-[250] bg-[#333] text-white rounded-full"
+          className="font-ibm-plex-arabic-semibold font-semibold normal-case h-[50] w-[250] bg-[#333] text-white rounded-full"
         />
       </ns-flexbox-layout>
     </>

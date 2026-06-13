@@ -1,1 +1,1 @@
-/*eslint-disable*/module.exports={messages:JSON.parse("{\"8hwlOf\":[\"Switch to English\"],\"N6cp4P\":[\"Count is \",[\"count\"]],\"ewXwCO\":[\"hello world\"],\"sEvfDI\":[\"Switch to Arabic\"],\"uzTaYi\":[\"Hello\"]}")};
+/*eslint-disable*/module.exports={messages:JSON.parse("{\"1njn7W\":[\"Light\"],\"8hwlOf\":[\"Switch to English\"],\"KmydK6\":[\"Bold\"],\"N6cp4P\":[\"Count is \",[\"count\"]],\"agPptk\":[\"Medium\"],\"bOp5Za\":[\"SemiBold\"],\"ewXwCO\":[\"hello world\"],\"sEvfDI\":[\"Switch to Arabic\"],\"uzTaYi\":[\"Hello\"],\"xfqlmg\":[\"Regular\"]}")};

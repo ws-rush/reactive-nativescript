@@ -14,6 +14,11 @@ msgstr ""
 
 #. js-lingui-generated-id
 #: src/appi.tsx
+msgid "Bold"
+msgstr "عريض"
+
+#. js-lingui-generated-id
+#: src/appi.tsx
 msgid "Count is {count}"
 msgstr "العدد هو {count}"
 
@@ -26,6 +31,26 @@ msgstr "مرحبا"
 #: src/appi.tsx
 msgid "hello world"
 msgstr "مرحبا بالعالم"
+
+#. js-lingui-generated-id
+#: src/appi.tsx
+msgid "Light"
+msgstr "خفيف"
+
+#. js-lingui-generated-id
+#: src/appi.tsx
+msgid "Medium"
+msgstr "متوسط"
+
+#. js-lingui-generated-id
+#: src/appi.tsx
+msgid "Regular"
+msgstr "عادي"
+
+#. js-lingui-generated-id
+#: src/appi.tsx
+msgid "SemiBold"
+msgstr "شبه عريض"
 
 #. js-lingui-generated-id
 #: src/appi.tsx

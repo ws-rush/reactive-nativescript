@@ -5,3 +5,11 @@
 */
 
 @import 'tailwindcss';
+
+@theme {
+  --font-ibm-plex-arabic: 'IBM Plex Sans Arabic', 'IBMPlexSansArabic-Regular';
+  --font-ibm-plex-arabic-light: 'IBM Plex Sans Arabic Light', 'IBMPlexSansArabic-Light';
+  --font-ibm-plex-arabic-medium: 'IBM Plex Sans Arabic Medium', 'IBMPlexSansArabic-Medium';
+  --font-ibm-plex-arabic-semibold: 'IBM Plex Sans Arabic SemiBold', 'IBMPlexSansArabic-SemiBold';
+  --font-ibm-plex-arabic-bold: 'IBM Plex Sans Arabic', 'IBMPlexSansArabic-Bold';
+}
