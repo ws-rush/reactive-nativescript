@@ -1,6 +1,6 @@
 import { transformAsync } from "@babel/core";
-import { defineNativescriptConfig } from "@gjsify/nativescript-vite";
-import type { Plugin } from "vite";
+import { defineConfig, mergeConfig, type Plugin } from "vite";
+import { typescriptConfig } from "@nativescript/vite/typescript";
 import Icons from "unplugin-icons/vite";
 import { FileSystemIconLoader } from "unplugin-icons/loaders";
 
@@ -56,25 +56,27 @@ export default function NsIcon({ width = 24, height = 24, stretch = "aspectFit",
 `;
 }
 
-export default defineNativescriptConfig({}, {
-  plugins: [
-    Icons({
-      compiler: {
-        compiler: compile,
-        extension: ".jsx",
-      },
-      customCollections: {
-        "vuesax-linear": FileSystemIconLoader(
-          "./src/assets/icons/vuesax/linear",
-        ),
-        "vuesax-bold": FileSystemIconLoader(
-          "./src/assets/icons/vuesax/bold",
-        ),
-      },
-    }),
-    nativeScriptAppBabel(),
-  ],
-});
+export default defineConfig(({ mode }) =>
+  mergeConfig(typescriptConfig({ mode }), {
+    plugins: [
+      Icons({
+        compiler: {
+          compiler: compile,
+          extension: ".jsx",
+        },
+        customCollections: {
+          "vuesax-linear": FileSystemIconLoader(
+            "./src/assets/icons/vuesax/linear",
+          ),
+          "vuesax-bold": FileSystemIconLoader(
+            "./src/assets/icons/vuesax/bold",
+          ),
+        },
+      }),
+      nativeScriptAppBabel(),
+    ],
+  }),
+);
 
 function nativeScriptAppBabel(): Plugin {
   return {
