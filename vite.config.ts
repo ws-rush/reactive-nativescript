@@ -95,16 +95,7 @@ function nativeScriptAppBabel(): Plugin {
         babelrc: false,
         configFile: false,
         sourceMaps: true,
-        presets: [
-          [
-            "@babel/preset-typescript",
-            {
-              allExtensions: true,
-              isTSX: normalizedId.endsWith(".tsx") || normalizedId.endsWith(".jsx"),
-            },
-          ],
-          ["@babel/preset-react", { runtime: "classic" }],
-        ],
+        presets: ["@babel/preset-typescript", ["@babel/preset-react", { runtime: "classic" }]],
         plugins: code.includes("@lingui/react/macro") ? ["macros"] : [],
       });
 

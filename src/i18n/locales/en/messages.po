@@ -13,51 +13,61 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-generated-id
-#: src/appi.tsx
+#: src/app.tsx
+msgid "About"
+msgstr "About"
+
+#. js-lingui-generated-id
+#: src/app.tsx
 msgid "Bold"
 msgstr "Bold"
 
 #. js-lingui-generated-id
-#: src/appi.tsx
+#: src/app.tsx
 msgid "Count is {count}"
 msgstr "Count is {count}"
 
 #. js-lingui-generated-id
-#: src/appi.tsx
-msgid "Hello"
-msgstr "Hello"
+#: src/app.tsx
+msgid "Current"
+msgstr "Current"
 
 #. js-lingui-generated-id
-#: src/appi.tsx
+#: src/app.tsx
 msgid "hello world"
 msgstr "hello world"
 
 #. js-lingui-generated-id
-#: src/appi.tsx
+#: src/app.tsx
 msgid "Light"
 msgstr "Light"
 
 #. js-lingui-generated-id
-#: src/appi.tsx
+#: src/app.tsx
 msgid "Medium"
 msgstr "Medium"
 
 #. js-lingui-generated-id
-#: src/appi.tsx
+#: src/app.tsx
 msgid "Regular"
 msgstr "Regular"
 
 #. js-lingui-generated-id
-#: src/appi.tsx
+#: src/app.tsx
 msgid "SemiBold"
 msgstr "SemiBold"
 
 #. js-lingui-generated-id
-#: src/appi.tsx
+#: src/app.tsx
 msgid "Switch to Arabic"
 msgstr "Switch to Arabic"
 
 #. js-lingui-generated-id
-#: src/appi.tsx
+#: src/app.tsx
 msgid "Switch to English"
 msgstr "Switch to English"
+
+#. js-lingui-generated-id
+#: src/app.tsx
+msgid "This is the about page."
+msgstr "This is the about page."

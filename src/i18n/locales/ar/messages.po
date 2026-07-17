@@ -13,51 +13,61 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-generated-id
-#: src/appi.tsx
+#: src/app.tsx
+msgid "About"
+msgstr ""
+
+#. js-lingui-generated-id
+#: src/app.tsx
 msgid "Bold"
 msgstr "عريض"
 
 #. js-lingui-generated-id
-#: src/appi.tsx
+#: src/app.tsx
 msgid "Count is {count}"
 msgstr "العدد هو {count}"
 
 #. js-lingui-generated-id
-#: src/appi.tsx
-msgid "Hello"
-msgstr "مرحبا"
+#: src/app.tsx
+msgid "Current"
+msgstr ""
 
 #. js-lingui-generated-id
-#: src/appi.tsx
+#: src/app.tsx
 msgid "hello world"
 msgstr "مرحبا بالعالم"
 
 #. js-lingui-generated-id
-#: src/appi.tsx
+#: src/app.tsx
 msgid "Light"
 msgstr "خفيف"
 
 #. js-lingui-generated-id
-#: src/appi.tsx
+#: src/app.tsx
 msgid "Medium"
 msgstr "متوسط"
 
 #. js-lingui-generated-id
-#: src/appi.tsx
+#: src/app.tsx
 msgid "Regular"
 msgstr "عادي"
 
 #. js-lingui-generated-id
-#: src/appi.tsx
+#: src/app.tsx
 msgid "SemiBold"
 msgstr "شبه عريض"
 
 #. js-lingui-generated-id
-#: src/appi.tsx
+#: src/app.tsx
 msgid "Switch to Arabic"
 msgstr "التبديل إلى العربية"
 
 #. js-lingui-generated-id
-#: src/appi.tsx
+#: src/app.tsx
 msgid "Switch to English"
 msgstr "التبديل إلى الإنجليزية"
+
+#. js-lingui-generated-id
+#: src/app.tsx
+msgid "This is the about page."
+msgstr ""

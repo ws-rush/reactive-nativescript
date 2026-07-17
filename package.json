@@ -34,14 +34,14 @@
     "nativescript": "9.0.6",
     "oxfmt": "^0.59.0",
     "oxlint": "^1.74.0",
-    "typescript": "~7.0.2",
+    "typescript": "~5.9.3",
     "unplugin-icons": "^23.0.1",
     "vite": "8.0.16"
   },
   "scripts": {
     "dev": "ns run android --no-hmr",
     "start": "ns run android --no-hmr",
-    "build": "ns build android",
+    "build": "NS_VITE_DIST_DIR=platforms/android/app/src/main/assets/app ns build android",
     "lint": "oxlint .",
     "lint:fix": "oxlint . --fix",
     "format": "oxfmt . --write",
