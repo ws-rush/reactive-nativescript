@@ -12,11 +12,11 @@ Based on the [NativeScript StackBlitz template](https://stackblitz.com/edit/nati
 
 ### Key Files
 
-| File | Purpose |
-|---|---|
-| `src/dom.js` | Sets up the global `document`, `window`, and `navigator` using `dominative` |
-| `src/app.tsx` | Entry point — bootstraps React into a NativeScript `FlexboxLayout` root |
-| `src/appi.tsx` | App component — example counter using React hooks + NativeScript views |
+| File                      | Purpose                                                                                                                                      |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `src/react-dom-bridge.js` | Bridges React DOM to NativeScript via `dominative`, including browser globals, NativeScript event names, tag aliases, and SVG color handling |
+| `src/main.ts`             | Entry point — bootstraps React into a NativeScript `FlexboxLayout` root                                                                      |
+| `src/appi.tsx`            | App component — example counter using React hooks + NativeScript views                                                                       |
 
 ## Prerequisites
 

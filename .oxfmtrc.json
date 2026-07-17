@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 100,
+  "semi": true,
+  "singleQuote": false,
+  "sortPackageJson": false,
+  "ignorePatterns": ["src/assets/icons/icon-registry.ts", "src/i18n/locales/**/messages.js"]
+}

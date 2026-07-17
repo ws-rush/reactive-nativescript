@@ -1,0 +1,5 @@
+{
+  "title": "Local tsconfig schema",
+  "type": "object",
+  "additionalProperties": true
+}

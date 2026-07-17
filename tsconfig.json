@@ -1,5 +1,7 @@
 {
+  "$schema": "./tsconfig.schema.json",
   "compilerOptions": {
+    "noEmit": true,
     "module": "esnext",
     "target": "es2017",
     "moduleResolution": "bundler",
@@ -12,28 +14,13 @@
     "allowJs": true,
     "maxNodeModuleJsDepth": 5,
     "jsx": "preserve",
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es2017", "dom"],
     "paths": {
-      "~/*": [
-        "./src/*"
-      ],
-      "@/*": [
-        "./src/*"
-      ]
+      "~/*": ["./src/*"],
+      "@/*": ["./src/*"]
     }
   },
-  "include": [
-    "./src/**/*.ts",
-    "./src/**/*.tsx"
-  ],
-  "files": [
-    "./references.d.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "platforms"
-  ]
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
+  "files": ["./references.d.ts"],
+  "exclude": ["node_modules", "platforms"]
 }

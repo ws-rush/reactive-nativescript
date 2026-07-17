@@ -9,7 +9,7 @@ import { FileSystemIconLoader } from "unplugin-icons/loaders";
  *
  * 1. Normalizes all fill/stroke colors to `currentColor`
  * 2. Generates a plain React component
- * 3. Color is handled by the SVGView patch in dom.js — it reads CSS `color`
+ * 3. Color is handled by the SVGView patch in react-dom-bridge.js — it reads CSS `color`
  *    (set by Tailwind classes like `text-red-500`) and replaces `currentColor`
  *    in the SVG at the NativeScript level.
  */
@@ -40,7 +40,7 @@ const compile = (
   svg: string,
   _collection: string,
   _icon: string,
-  _options: Record<string, any>
+  _options: Record<string, any>,
 ): string => {
   const normalized = normalizeColors(svg);
   const escaped = escapeTemplateLiteral(normalized);
@@ -54,7 +54,7 @@ export default function NsIcon({ width = 24, height = 24, stretch = "aspectFit",
   return React.createElement("ns-svg-view", { src, width, height, stretch, className, style, ...rest });
 }
 `;
-}
+};
 
 export default defineConfig(({ mode }) =>
   mergeConfig(typescriptConfig({ mode }), {
@@ -65,12 +65,8 @@ export default defineConfig(({ mode }) =>
           extension: ".jsx",
         },
         customCollections: {
-          "vuesax-linear": FileSystemIconLoader(
-            "./src/assets/icons/vuesax/linear",
-          ),
-          "vuesax-bold": FileSystemIconLoader(
-            "./src/assets/icons/vuesax/bold",
-          ),
+          "vuesax-linear": FileSystemIconLoader("./src/assets/icons/vuesax/linear"),
+          "vuesax-bold": FileSystemIconLoader("./src/assets/icons/vuesax/bold"),
         },
       }),
       nativeScriptAppBabel(),
@@ -112,9 +108,7 @@ function nativeScriptAppBabel(): Plugin {
         plugins: code.includes("@lingui/react/macro") ? ["macros"] : [],
       });
 
-      return result?.code
-        ? { code: result.code, map: result.map ?? null }
-        : null;
+      return result?.code ? { code: result.code, map: result.map ?? null } : null;
     },
   };
 }
@@ -128,7 +122,9 @@ function shouldTransformSourceModule(id: string, code: string) {
 }
 
 function isMessageFormatParserModule(id: string) {
-  return id.endsWith(".js") && id.includes("/node_modules/") && id.includes("@messageformat/parser/");
+  return (
+    id.endsWith(".js") && id.includes("/node_modules/") && id.includes("@messageformat/parser/")
+  );
 }
 
 async function transformUnicodePropertyRegex(code: string, filename: string) {
@@ -140,7 +136,5 @@ async function transformUnicodePropertyRegex(code: string, filename: string) {
     plugins: ["@babel/plugin-transform-unicode-property-regex"],
   });
 
-  return result?.code
-    ? { code: result.code, map: result.map ?? null }
-    : null;
+  return result?.code ? { code: result.code, map: result.map ?? null } : null;
 }

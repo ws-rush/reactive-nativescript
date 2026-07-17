@@ -7,9 +7,7 @@ type NativeScriptEventAttributes = {
 };
 
 type NativeScriptHostProps = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLElement> &
-    NativeScriptEventAttributes &
-    Record<string, any>,
+  React.HTMLAttributes<HTMLElement> & NativeScriptEventAttributes & Record<string, any>,
   HTMLElement
 >;
 

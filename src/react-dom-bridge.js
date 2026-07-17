@@ -97,9 +97,7 @@ const normalizeNativeScriptEventName = (eventName) => {
   }
 
   const normalizedEventName =
-    eventName.startsWith("on") && eventName.length > 2
-      ? eventName.slice(2)
-      : eventName;
+    eventName.startsWith("on") && eventName.length > 2 ? eventName.slice(2) : eventName;
 
   return normalizedEventName[0].toLowerCase() + normalizedEventName.slice(1);
 };
@@ -125,19 +123,11 @@ const patchNativeScriptEvents = (Element) => {
   const removeEventListener = prototype.removeEventListener;
 
   prototype.addEventListener = function (eventName, ...args) {
-    return addEventListener.call(
-      this,
-      normalizeNativeScriptEventName(eventName),
-      ...args
-    );
+    return addEventListener.call(this, normalizeNativeScriptEventName(eventName), ...args);
   };
 
   prototype.removeEventListener = function (eventName, ...args) {
-    return removeEventListener.call(
-      this,
-      normalizeNativeScriptEventName(eventName),
-      ...args
-    );
+    return removeEventListener.call(this, normalizeNativeScriptEventName(eventName), ...args);
   };
 
   Object.defineProperty(prototype, "__reactNativeScriptEventsPatched", {
@@ -159,7 +149,7 @@ for (const [elementName, Element] of Object.entries(document.defaultView)) {
 aliasTagName((tag) => `ns-${toKebabCase(tag)}`);
 
 if (!scope.HTMLIFrameElement) {
-  scope.HTMLIFrameElement = function HTMLIFrameElement() { };
+  scope.HTMLIFrameElement = function HTMLIFrameElement() {};
 }
 
 scope.document = document;
@@ -184,8 +174,8 @@ Object.assign(windowShim, {
   SVGElement: scope.SVGElement,
   Document: scope.Document,
   HTMLIFrameElement: scope.HTMLIFrameElement,
-  addEventListener: windowShim.addEventListener || (() => { }),
-  removeEventListener: windowShim.removeEventListener || (() => { }),
+  addEventListener: windowShim.addEventListener || (() => {}),
+  removeEventListener: windowShim.removeEventListener || (() => {}),
   dispatchEvent: windowShim.dispatchEvent || (() => true),
 });
 
